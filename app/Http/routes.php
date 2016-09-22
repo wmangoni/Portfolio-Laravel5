@@ -35,3 +35,8 @@ Route::group(['middleware' => ['web']], function () {
 // Route::patch($uri, $callback);
 // Route::delete($uri, $callback);
 // Route::options($uri, $callback);
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
